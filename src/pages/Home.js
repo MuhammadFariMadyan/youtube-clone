@@ -48,33 +48,15 @@ class Home extends Component {
     return (
       <div className="App">
         <Header text1="Clone Youtube - React JS" />
-        <Body />
-
-        <form>
-          <input 
-          type="text"
-          value={this.state.tinggi}
-          name="tinggi"
-          onChange={this.handleChange}
-          />
-          <button> 
-            Boleh Gak ?
-          </button>
-          {
-            this.state.tinggi > 100 ? (<h1>Boleh Dong!</h1>) : (<h1>Mana Boleh!</h1>)
-          }   
-
-          <hr></hr>
-
-          <h1>Siaran Youtube Hari ini</h1>  
+        <form>          
           <label>Cari</label>
-          <input 
+          <input
             type="text"
             value={this.state.search}
             name="search"
             onChange={this.handleChange}
           />
-          <button onClick={this.searchVideos(this.state.search)}> 
+          <button onClick={this.searchVideos(this.state.search)}>
             Cari
           </button>
           <hr></hr>
@@ -85,14 +67,14 @@ class Home extends Component {
               .map((videos, index) => {
               return (
                 <div key={index}>
-                  <img src={videos.thumbnails.default.url} />                  
+                  <img src={videos.thumbnails.default.url} />
                   <Link to={`detail/${videos.id}`}>
-                    <h2>{videos.title}</h2>                    
+                    <h2>{videos.title}</h2>
                   </Link>
                 </div>
               )
             })
-          }              
+          }
         </form>
       </div>
     );
